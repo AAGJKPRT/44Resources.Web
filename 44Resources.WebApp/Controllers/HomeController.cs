@@ -8,8 +8,39 @@ namespace _44Resources.WebApp.Controllers
 {
     public class HomeController : Controller
     {
-        // GET: Home
         public ActionResult Index()
+        {
+            //Default controller...
+            return View();
+        }
+
+        public ActionResult About()
+        {
+            ViewBag.Message = "Your application description page.";
+
+            return View();
+        }
+
+        public ActionResult Contact()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
+        public ActionResult login()
+        {
+            return View();
+        }
+
+        public ActionResult newassociate()
+        {
+            return View();
+        }
+        public ActionResult Associates()
+        {
+            return View();
+        }
+        public ActionResult Signup()
         {
             return View();
         }

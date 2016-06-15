@@ -1,0 +1,95 @@
+﻿@{
+    ViewBag.Title = "Login";
+    Layout = null;
+}
+<!doctype html>
+<html>
+<!-- Mirrored from lab.westilian.com/matmix/list-view/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 08 May 2016 14:53:24 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="One roof solution for any business" />
+    <meta name="author" content="44 Resources">
+    <title>Login | 44 Resources</title>
+    <link rel="stylesheet" href="~/Content/theme/css/font-awesome.css" type="text/css">
+    <link rel="stylesheet" href="~/Content/theme/css/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="~/Content/theme/css/animate.css" type="text/css">
+    <link rel="stylesheet" href="~/Content/theme/css/waves.css" type="text/css">
+    <link rel="stylesheet" href="~/Content/theme/css/layout.css" type="text/css">
+    <link rel="stylesheet" href="~/Content/theme/css/components.css" type="text/css">
+    <link rel="stylesheet" href="~/Content/theme/css/plugins.css" type="text/css">
+    <link rel="stylesheet" href="~/Content/theme/css/common-styles.css" type="text/css">
+    <link rel="stylesheet" href="~/Content/theme/css/pages.css" type="text/css">
+    <link rel="stylesheet" href="~/Content/theme/css/responsive.css" type="text/css">
+    <link rel="stylesheet" href="~/Content/theme/css/matmix-iconfont.css" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Roboto:400,300,400italic,500,500italic" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet" type="text/css">
+</head>
+<body class="login-page">
+    <div class="page-container">
+        <div class="login-branding">
+            <a href="index.html"><img src="~/Content/theme/images/logo-large.png" alt="logo"></a>
+        </div>
+        <div class="login-container">
+            <img class="login-img-card" src="~/Content/theme/images/avatar/jaman-01.jpg" alt="login thumb" />
+            <form class="form-signin">
+                <input type="text" id="inputEmail" class="form-control floatlabel " placeholder="Email Address" required autofocus>
+                <input type="password" id="inputPassword" class="form-control floatlabel " placeholder="Password" required>
+                <div id="remember" class="checkbox">
+                    <label>
+                        <input type="checkbox" class="switch-mini" /> Remember Me
+                    </label>
+                </div>
+                @*<script>
+                        jQuery(function ($) {
+                            debugger;
+                            $('#btn-login').on('click', function () {
+                                $.ajax({
+                                    url: '@Url.Action("Index", "Home")',
+                                    async: true,
+                                    type: 'POST'
+                                });
+                            });
+                        });
+                    </script>*@
+                @*@Html.Action("Index", "Home");*@
+                <a href="/home/Index" class="btn btn-primary btn-block btn-signin">Sign In</a>
+                @*<button id="btn-login" class="btn btn-primary btn-block btn-signin" type="submit">Sign In</button>*@
+            </form>
+            <a href="#" class="forgot-password">
+                Forgot the password?
+            </a>
+        </div>
+        <div class="create-account">
+            <a href="/Home/Signup">
+                Create Account
+            </a>
+        </div>
+        <div class="login-footer">
+            Crafted with<i class="fa fa-heart"></i>by <a href="#">westilian</a>
+        </div>
+    </div>
+    <script src="~/Content/theme/js/jquery-1.11.2.min.js"></script>
+    <script src="~/Content/theme/js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="~/Content/theme/js/jRespond.min.js"></script>
+    <script src="~/Content/theme/js/bootstrap.min.js"></script>
+    <script src="~/Content/theme/js/nav-accordion.js"></script>
+    <script src="~/Content/theme/js/hoverintent.js"></script>
+    <script src="~/Content/theme/js/waves.js"></script>
+    <script src="~/Content/theme/js/switchery.js"></script>
+    <script src="~/Content/theme/js/jquery.loadmask.js"></script>
+    <script src="~/Content/theme/js/icheck.js"></script>
+    <script src="~/Content/theme/js/bootbox.js"></script>
+    <script src="~/Content/theme/js/animation.js"></script>
+    <script src="~/Content/theme/js/colorpicker.js"></script>
+    <script src="~/Content/theme/js/bootstrap-datepicker.js"></script>
+    <script src="~/Content/theme/js/floatlabels.js"></script>
+    <script src="~/Content/theme/js/smart-resize.js"></script>
+    <script src="~/Content/theme/js/layout.init.js"></script>
+    <script src="~/Content/theme/js/matmix.init.js"></script>
+    <script src="~/Content/theme/js/retina.min.js"></script>
+</body>
+
+<!-- Mirrored from lab.westilian.com/matmix/list-view/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 08 May 2016 14:53:48 GMT -->
+</html>
