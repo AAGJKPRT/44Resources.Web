@@ -12,6 +12,8 @@ namespace _44Resources.WCF.Service
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class Entities : DbContext
     {
@@ -27,5 +29,10 @@ namespace _44Resources.WCF.Service
     
         public virtual DbSet<tbl_BA_BankDetail> tbl_BA_BankDetail { get; set; }
         public virtual DbSet<tblBusinessAssociate> tblBusinessAssociates { get; set; }
+    
+        public virtual ObjectResult<usp_BA_Signup_Result> usp_BA_Signup()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_BA_Signup_Result>("usp_BA_Signup");
+        }
     }
 }

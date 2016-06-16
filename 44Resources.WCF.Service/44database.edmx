@@ -4,7 +4,12 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ResourcesDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="ResourcesDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6013: The table/view '44Resources_dev.44users.test' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="test">
+          <Property Name="test" Type="int" />
+        </EntityType>-->
         <EntityType Name="tbl_BA_BankDetail">
           <Key>
             <PropertyRef Name="Id" />
@@ -34,12 +39,12 @@
           <Property Name="BankId" Type="int" />
           <Property Name="MemberId" Type="varchar(max)" Nullable="false" />
         </EntityType>
+        <Function Name="usp_BA_Signup" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="44users" />
         <EntityContainer Name="ResourcesDBModelStoreContainer">
           <EntitySet Name="tbl_BA_BankDetail" EntityType="Self.tbl_BA_BankDetail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblBusinessAssociate" EntityType="Self.tblBusinessAssociate" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ResourcesDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -75,7 +80,22 @@
         <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="tbl_BA_BankDetail" EntityType="Self.tbl_BA_BankDetail" />
           <EntitySet Name="tblBusinessAssociates" EntityType="Self.tblBusinessAssociate" />
+          <FunctionImport Name="usp_BA_Signup" ReturnType="Collection(ResourcesDBModel.usp_BA_Signup_Result)" />
         </EntityContainer>
+        <ComplexType Name="usp_BA_Signup_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="LastName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Email" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="Mobile" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Password" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="Address" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="Pincode" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="City" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="PhotoId" Nullable="true" />
+          <Property Type="Int32" Name="BankId" Nullable="true" />
+          <Property Type="String" Name="MemberId" Nullable="false" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -113,6 +133,24 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="usp_BA_Signup" FunctionName="ResourcesDBModel.Store.usp_BA_Signup">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ResourcesDBModel.usp_BA_Signup_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Pincode" ColumnName="Pincode" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="PhotoId" ColumnName="PhotoId" />
+                <ScalarProperty Name="BankId" ColumnName="BankId" />
+                <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
