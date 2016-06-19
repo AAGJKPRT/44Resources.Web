@@ -5,11 +5,6 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="ResourcesDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--Errors Found During Generation:
-warning 6013: The table/view '44Resources_dev.44users.test' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="test">
-          <Property Name="test" Type="int" />
-        </EntityType>-->
         <EntityType Name="tbl_BA_BankDetail">
           <Key>
             <PropertyRef Name="Id" />
@@ -39,7 +34,17 @@ warning 6013: The table/view '44Resources_dev.44users.test' does not have a prim
           <Property Name="BankId" Type="int" />
           <Property Name="MemberId" Type="varchar(max)" Nullable="false" />
         </EntityType>
-        <Function Name="usp_BA_Signup" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="44users" />
+        <Function Name="usp_BA_Signup" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FirstName" Type="varchar" Mode="In" />
+          <Parameter Name="LastName" Type="varchar" Mode="In" />
+          <Parameter Name="Email" Type="varchar" Mode="In" />
+          <Parameter Name="Mobile" Type="varchar" Mode="In" />
+          <Parameter Name="Password" Type="varchar" Mode="In" />
+          <Parameter Name="Address" Type="varchar" Mode="In" />
+          <Parameter Name="Pincode" Type="varchar" Mode="In" />
+          <Parameter Name="City" Type="varchar" Mode="In" />
+          <Parameter Name="MemberId" Type="varchar(max)" Mode="In" />
+        </Function>
         <EntityContainer Name="ResourcesDBModelStoreContainer">
           <EntitySet Name="tbl_BA_BankDetail" EntityType="Self.tbl_BA_BankDetail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblBusinessAssociate" EntityType="Self.tblBusinessAssociate" Schema="dbo" store:Type="Tables" />
@@ -81,6 +86,17 @@ warning 6013: The table/view '44Resources_dev.44users.test' does not have a prim
           <EntitySet Name="tbl_BA_BankDetail" EntityType="Self.tbl_BA_BankDetail" />
           <EntitySet Name="tblBusinessAssociates" EntityType="Self.tblBusinessAssociate" />
           <FunctionImport Name="usp_BA_Signup" ReturnType="Collection(ResourcesDBModel.usp_BA_Signup_Result)" />
+          <FunctionImport Name="usp_BA_Signup1">
+            <Parameter Name="FirstName" Mode="In" Type="String" />
+            <Parameter Name="LastName" Mode="In" Type="String" />
+            <Parameter Name="Email" Mode="In" Type="String" />
+            <Parameter Name="Mobile" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+            <Parameter Name="Address" Mode="In" Type="String" />
+            <Parameter Name="Pincode" Mode="In" Type="String" />
+            <Parameter Name="City" Mode="In" Type="String" />
+            <Parameter Name="MemberId" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="usp_BA_Signup_Result">
           <Property Type="Int32" Name="Id" Nullable="false" />
@@ -133,24 +149,7 @@ warning 6013: The table/view '44Resources_dev.44users.test' does not have a prim
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="usp_BA_Signup" FunctionName="ResourcesDBModel.Store.usp_BA_Signup">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="ResourcesDBModel.usp_BA_Signup_Result">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-                <ScalarProperty Name="LastName" ColumnName="LastName" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="Pincode" ColumnName="Pincode" />
-                <ScalarProperty Name="City" ColumnName="City" />
-                <ScalarProperty Name="PhotoId" ColumnName="PhotoId" />
-                <ScalarProperty Name="BankId" ColumnName="BankId" />
-                <ScalarProperty Name="MemberId" ColumnName="MemberId" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_BA_Signup1" FunctionName="ResourcesDBModel.Store.usp_BA_Signup" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

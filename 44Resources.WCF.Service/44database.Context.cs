@@ -34,5 +34,46 @@ namespace _44Resources.WCF.Service
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_BA_Signup_Result>("usp_BA_Signup");
         }
+    
+        public virtual int usp_BA_Signup1(string firstName, string lastName, string email, string mobile, string password, string address, string pincode, string city, string memberId)
+        {
+            var firstNameParameter = firstName != null ?
+                new ObjectParameter("FirstName", firstName) :
+                new ObjectParameter("FirstName", typeof(string));
+    
+            var lastNameParameter = lastName != null ?
+                new ObjectParameter("LastName", lastName) :
+                new ObjectParameter("LastName", typeof(string));
+    
+            var emailParameter = email != null ?
+                new ObjectParameter("Email", email) :
+                new ObjectParameter("Email", typeof(string));
+    
+            var mobileParameter = mobile != null ?
+                new ObjectParameter("Mobile", mobile) :
+                new ObjectParameter("Mobile", typeof(string));
+    
+            var passwordParameter = password != null ?
+                new ObjectParameter("Password", password) :
+                new ObjectParameter("Password", typeof(string));
+    
+            var addressParameter = address != null ?
+                new ObjectParameter("Address", address) :
+                new ObjectParameter("Address", typeof(string));
+    
+            var pincodeParameter = pincode != null ?
+                new ObjectParameter("Pincode", pincode) :
+                new ObjectParameter("Pincode", typeof(string));
+    
+            var cityParameter = city != null ?
+                new ObjectParameter("City", city) :
+                new ObjectParameter("City", typeof(string));
+    
+            var memberIdParameter = memberId != null ?
+                new ObjectParameter("MemberId", memberId) :
+                new ObjectParameter("MemberId", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("usp_BA_Signup1", firstNameParameter, lastNameParameter, emailParameter, mobileParameter, passwordParameter, addressParameter, pincodeParameter, cityParameter, memberIdParameter);
+        }
     }
 }
