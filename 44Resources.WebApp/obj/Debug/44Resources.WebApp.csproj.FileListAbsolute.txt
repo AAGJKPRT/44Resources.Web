@@ -46,6 +46,7 @@ F:\Gaurav\Projects\44Resources\44Resources.Web\44Resources.WebApp\bin\roslyn\VBC
 F:\Gaurav\Projects\44Resources\44Resources.Web\44Resources.WebApp\bin\44Resources.WebApp.dll.config
 F:\Gaurav\Projects\44Resources\44Resources.Web\44Resources.WebApp\bin\44Resources.WebApp.dll
 F:\Gaurav\Projects\44Resources\44Resources.Web\44Resources.WebApp\bin\44Resources.WebApp.pdb
+F:\Gaurav\Projects\44Resources\44Resources.Web\44Resources.WebApp\bin\44Resources.DataContract.dll
 F:\Gaurav\Projects\44Resources\44Resources.Web\44Resources.WebApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 F:\Gaurav\Projects\44Resources\44Resources.Web\44Resources.WebApp\bin\Microsoft.Web.Infrastructure.dll
 F:\Gaurav\Projects\44Resources\44Resources.Web\44Resources.WebApp\bin\System.Web.Helpers.dll
@@ -54,6 +55,7 @@ F:\Gaurav\Projects\44Resources\44Resources.Web\44Resources.WebApp\bin\System.Web
 F:\Gaurav\Projects\44Resources\44Resources.Web\44Resources.WebApp\bin\System.Web.Webpages.Deployment.dll
 F:\Gaurav\Projects\44Resources\44Resources.Web\44Resources.WebApp\bin\System.Web.Webpages.dll
 F:\Gaurav\Projects\44Resources\44Resources.Web\44Resources.WebApp\bin\System.Web.Webpages.Razor.dll
+F:\Gaurav\Projects\44Resources\44Resources.Web\44Resources.WebApp\bin\44Resources.DataContract.pdb
 F:\Gaurav\Projects\44Resources\44Resources.Web\44Resources.WebApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 F:\Gaurav\Projects\44Resources\44Resources.Web\44Resources.WebApp\bin\System.Web.Razor.xml
 F:\Gaurav\Projects\44Resources\44Resources.Web\44Resources.WebApp\bin\System.Web.Webpages.xml

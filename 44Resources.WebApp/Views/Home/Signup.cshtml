@@ -1,7 +1,9 @@
-﻿@{?>,mnbvcxz
+﻿@{
     ViewBag.Title = "Sign Up";
     Layout = null;
 }
+@model _44Resources.DataContract.BusinessAssociate
+
 <!doctype html>
 <html>
 <!-- Mirrored from lab.westilian.com/matmix/list-view/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 08 May 2016 14:54:55 GMT -->
@@ -14,7 +16,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="A Components Mix Bootstarp 3 Admin Dashboard Template">
     <meta name="author" content="Westilian">
-    
+
     <link rel="stylesheet" href="~/Content/theme/css/font-awesome.css" type="text/css">
     <link rel="stylesheet" href="~/Content/theme/css/bootstrap.css" type="text/css">
     <link rel="stylesheet" href="~/Content/theme/css/animate.css" type="text/css">
@@ -31,7 +33,7 @@
 </head>
 <body>
     <div class="page-container list-menu-view">
-        <div >
+        <div>
             <div class="main-container">
                 <div class="container-fluid">
                     <div class="page-breadcrumb">
@@ -39,7 +41,7 @@
                             <div class="col-md-7">
                                 <div class="page-breadcrumb-wrap">
                                     <div class="page-breadcrumb-info">
-                                        <h2 class="breadcrumb-titles">Quick and Easy Sign Up for 44 Resources<small></small></h2>
+                                        <h2 class="breadcrumb-titles">Sign Up for 44 Resources<small></small></h2>
                                         <ul class="list-page-breadcrumb">
                                             <li>
                                                 <a href="#">Home</a>
@@ -64,49 +66,67 @@
                                 </div>
                                 <div class="widget-container">
                                     <div class="widget-block">
-                                        <form id="AjaxSubmit" method="post" class="form-horizontal" action="/home/index">
-                                            <div class="form-group">
-                                                <label class="col-lg-4 control-label">Username</label>
-                                                <div class="col-lg-8">
-                                                    <input type="text" required class="form-control" name="username" />
+                                        @*<form id="AjaxSubmit" method="post" class="form-horizontal" action="/home/index">*@
+                                        @using (Html.BeginForm("SignUp", "Home", FormMethod.Post, new { @class = "form-horizontal" }))
+                                        {
+                                            <form>
+                                                <div class="form-group">
+                                                    <label class="col-lg-4 control-label">FirstName</label>
+                                                    <div class="col-lg-8">
+                                                        @Html.TextBoxFor(model => model.FirstName, null, new { @class = "form-control" })
+                                                        @*<input type="text" required class="form-control" name="username" />*@
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-lg-4 control-label">Email address</label>
-                                                <div class="col-lg-8">
-                                                    <input type="email" required class="form-control" name="email" />
+                                                <div class="form-group">
+                                                    <label class="col-lg-4 control-label">LastName</label>
+                                                    <div class="col-lg-8">
+                                                        @Html.TextBoxFor(model => model.LastName, null, new { @class = "form-control" })
+                                                        @*<input type="text" required class="form-control" name="username" />*@
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-lg-4 control-label">Mobile</label>
-                                                <div class="col-lg-8">
-                                                    <input type="text" required class="form-control" name="Mobile" />
+                                                <div class="form-group">
+                                                    <label class="col-lg-4 control-label">Email address</label>
+                                                    <div class="col-lg-8">
+                                                        @Html.TextBoxFor(model => model.Email, null, new { @class = "form-control" })
+                                                        @*<input type="email" required class="form-control" name="email" />*@
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-lg-4 control-label">Password</label>
-                                                <div class="col-lg-8">
-                                                    <input type="password" required class="form-control" name="password" />
+                                                <div class="form-group">
+                                                    <label class="col-lg-4 control-label">Mobile</label>
+                                                    <div class="col-lg-8">
+                                                        @Html.TextBoxFor(model => model.Mobile, null, new { @class = "form-control" })
+                                                        @*<input type="text" required class="form-control" name="Mobile" />*@
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-lg-4 control-label">Confirm Password</label>
-                                                <div class="col-lg-8">
-                                                    <input type="password" required class="form-control" name="ConfirmPassword" />
+                                                <div class="form-group">
+                                                    <label class="col-lg-4 control-label">Password</label>
+                                                    <div class="col-lg-8">
+                                                        @Html.TextBoxFor(model => model.Password, null, new { @class = "form-control" })
+                                                        @*<input type="password" required class="form-control" name="password" />*@
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-lg-8 col-lg-offset-4">
-                                                <div class="checkbox">
-                                                    <input type="checkbox" name="acceptTerms" data-bv-field="acceptTerms">
-                                                    I agree with terms and conditions
+                                                <div class="form-group">
+                                                    <label class="col-lg-4 control-label">Confirm Password</label>
+                                                    <div class="col-lg-8">
+                                                        @Html.TextBoxFor(model => model.ConfirmPassword, null, new { @class = "form-control" })
+                                                        @*<input type="password" required class="form-control" name="ConfirmPassword" />*@
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="form-group">
                                                 <div class="col-lg-8 col-lg-offset-4">
-                                                    <button type="submit" class="btn btn-primary">Sign up</button>
+                                                    <div class="checkbox">
+                                                        <input type="checkbox" name="acceptTerms" data-bv-field="acceptTerms">
+                                                        I agree with terms and conditions
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </form>
+                                                <div class="form-group">
+                                                    <div class="col-lg-8 col-lg-offset-4">
+                                                        @*@Html.ActionLink("SignUp", "Signup", "Home", new { Model })*@
+                                                        <button type="submit" class="btn btn-primary">Sign up!</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        }
+                                        @*</form>*@
                                     </div>
                                 </div>
                             </div>
@@ -123,7 +143,7 @@
                     <div class="row">
                         <div class="col-md-6 col-sm-6">
                             <div class="footer-left">
-                                <span>&copy; 2016 <a href="#">44 Resources</a></span>
+                                <span>&copy; 2016 <a href="http://www.44resources.com/">44 Resources</a></span>
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-6">
@@ -158,6 +178,4 @@
 </body>
 <!-- Mirrored from lab.westilian.com/matmix/list-view/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 08 May 2016 14:55:58 GMT -->
 </html>
-
-
 
