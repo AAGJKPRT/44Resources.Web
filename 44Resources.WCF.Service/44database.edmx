@@ -45,6 +45,7 @@
           <Parameter Name="City" Type="varchar" Mode="In" />
           <Parameter Name="MemberId" Type="varchar(max)" Mode="In" />
         </Function>
+        <Function Name="usp_Get_All_BA_List" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="ResourcesDBModelStoreContainer">
           <EntitySet Name="tbl_BA_BankDetail" EntityType="Self.tbl_BA_BankDetail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblBusinessAssociate" EntityType="Self.tblBusinessAssociate" Schema="dbo" store:Type="Tables" />
@@ -97,8 +98,23 @@
             <Parameter Name="City" Mode="In" Type="String" />
             <Parameter Name="MemberId" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="usp_Get_All_BA_List" ReturnType="Collection(ResourcesDBModel.usp_Get_All_BA_List_Result)" />
         </EntityContainer>
         <ComplexType Name="usp_BA_Signup_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="LastName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Email" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="Mobile" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Password" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="Address" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="Pincode" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="City" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="PhotoId" Nullable="true" />
+          <Property Type="Int32" Name="BankId" Nullable="true" />
+          <Property Type="String" Name="MemberId" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="usp_Get_All_BA_List_Result">
           <Property Type="Int32" Name="Id" Nullable="false" />
           <Property Type="String" Name="FirstName" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="LastName" Nullable="true" MaxLength="50" />
@@ -150,6 +166,24 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="usp_BA_Signup1" FunctionName="ResourcesDBModel.Store.usp_BA_Signup" />
+          <FunctionImportMapping FunctionImportName="usp_Get_All_BA_List" FunctionName="ResourcesDBModel.Store.usp_Get_All_BA_List">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ResourcesDBModel.usp_Get_All_BA_List_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Pincode" ColumnName="Pincode" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="PhotoId" ColumnName="PhotoId" />
+                <ScalarProperty Name="BankId" ColumnName="BankId" />
+                <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

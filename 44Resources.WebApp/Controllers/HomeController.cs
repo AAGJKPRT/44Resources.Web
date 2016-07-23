@@ -57,9 +57,9 @@ namespace _44Resources.WebApp.Controllers
                 string json = "";//http://services.44resources.com/44Service.svc
                 JavaScriptSerializer js = new JavaScriptSerializer();
 
-                businessAssociate.Pincode = businessAssociate.Pincode == null ? "null" : businessAssociate.Pincode;
-                businessAssociate.Address = businessAssociate.Address == null ? "null" : businessAssociate.Address;
-                businessAssociate.City = businessAssociate.City == null ? "null" : businessAssociate.City;
+                businessAssociate.Pincode = businessAssociate.Pincode == null ? "NULL" : businessAssociate.Pincode;
+                businessAssociate.Address = businessAssociate.Address == null ? "NULL" : businessAssociate.Address;
+                businessAssociate.City = businessAssociate.City == null ? "NULL" : businessAssociate.City;
 
                 string Param = businessAssociate.FirstName + "," + businessAssociate.LastName + "," + businessAssociate.Email
                 + "," + businessAssociate.Mobile + "," + businessAssociate.Password + "," + businessAssociate.Address +
@@ -73,13 +73,17 @@ namespace _44Resources.WebApp.Controllers
                     json = sr.ReadToEnd();
                 }
                 var jsonObject = js.Deserialize<dynamic>(json);
+                if (jsonObject["Status"])
+                    return View("login");
+                else
+                    return View();
             }
             catch (Exception ex)
             {
                 ex.ToString();
                 return View();
             }
-            return View();
+
         }
     }
 }

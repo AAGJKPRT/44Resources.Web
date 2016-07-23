@@ -75,5 +75,10 @@ namespace _44Resources.WCF.Service
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("usp_BA_Signup1", firstNameParameter, lastNameParameter, emailParameter, mobileParameter, passwordParameter, addressParameter, pincodeParameter, cityParameter, memberIdParameter);
         }
+    
+        public virtual ObjectResult<usp_Get_All_BA_List_Result> usp_Get_All_BA_List()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_Get_All_BA_List_Result>("usp_Get_All_BA_List");
+        }
     }
 }

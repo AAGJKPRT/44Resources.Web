@@ -306,6 +306,7 @@
     <Content Include="Content\theme\fonts\matmix-iconsb0d6.ttf" />
     <Content Include="Content\theme\fonts\matmix-iconsb0d6.woff" />
     <Content Include="Content\theme\fonts\matmix-iconsd41d.eot" />
+    <None Include="Properties\PublishProfiles\44Resources.web.publish.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
